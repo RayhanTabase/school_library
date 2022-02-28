@@ -10,6 +10,3 @@ class Student < Person
     '¯\(ツ)/¯'
   end
 end
-
-b = Student.new(7)
-p b.name
