@@ -1,5 +1,6 @@
+require_relative './person'
+
 class Teacher < Person
-  
   def initialize(specialization)
     super
     @specialization = specialization
@@ -8,5 +9,4 @@ class Teacher < Person
   def can_use_services?
     true
   end
-
 end
