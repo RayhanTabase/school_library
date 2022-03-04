@@ -5,16 +5,14 @@ class Person
 
   attr_reader :id
 
-  def initialize(age, name: 'Unknown', parent_permission: true)
-    @id = rand(10...42)
+  def initialize(age, name = 'Unknown', parent_permission: true)
+    @id = rand(1...400)
     @name = name
     @parent_permission = parent_permission
     @age = age
     @corrector = Corrector.new
     @rentals = []
   end
-
-  private
 
   def of_age?
     @age >= 18
@@ -31,4 +29,6 @@ class Person
   def add_rental(rental)
     @rentals << rental
   end
+
+  private :of_age?
 end
