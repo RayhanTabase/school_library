@@ -8,7 +8,7 @@ module Inputs
     end
     input
   end
-  
+
   def input_string_no_num(limit = 1, statement = '')
     input = nil
     while input.nil?
@@ -18,7 +18,7 @@ module Inputs
     end
     input
   end
-  
+
   def input_string(limit = 1, statement = '')
     input = nil
     while input.nil?
@@ -28,7 +28,7 @@ module Inputs
     end
     input
   end
-  
+
   def choose_y_n(statement = '')
     input = nil
     while input.nil?
