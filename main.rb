@@ -3,18 +3,18 @@ require_relative './teacher'
 require_relative './classroom'
 require_relative './book'
 require_relative './rental'
-
-
-
 require_relative './inputs'
-
+require_relative './library.rb'
+include Inputs
 def main
+  library = Library.new
   puts 'Welcome to School Library App'
-  while is_running == true
-    display_menu
+  flag = true
+  while flag
+    library.display_menu
     option = input_number(7)
-    break if option == 7
-    display_choice(option)
+    flag = option === 7 ? false : flag
+    library.display_choice(option)
   end
 end
 

@@ -1,6 +1,7 @@
 require_relative './inputs'
 
 class Library
+  include Inputs
   def initialize
     @books = []
     @people = []

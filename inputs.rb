@@ -1,4 +1,4 @@
-class Inputs
+module Inputs
   def input_number(limit, statement = '')
     input = nil
     while input.nil?
