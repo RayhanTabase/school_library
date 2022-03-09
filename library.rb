@@ -1,11 +1,12 @@
+require 'json'
 require_relative './inputs'
 
 class Library
   include Inputs
   def initialize
-    @books = []
-    @people = []
-    @rentals = []
+    @books = read_data('books.json')
+    @people = read_data('people.json')
+    @rentals = read_data('rentals.json')
   end
 
   def list_all_books(with_index: false)
@@ -110,6 +111,20 @@ class Library
     puts 'Please choose an option by entering a valid number: '
     puts ' '
     options.each_with_index { |choice, index| puts "#{index + 1} - #{choice}" }
+  end
+
+  def store_data
+    File.write('rentals.json',  JSON.generate(@rentals, create_additions: true))
+    File.write('books.json',  JSON.generate(@books, create_additions: true))
+    File.write('people.json',  JSON.generate(@people, create_additions: true)) 
+  end
+
+  def read_data(dir)
+    if File.exists?(dir)
+      data = File.read(dir)
+      return JSON.parse(data,  create_additions: true)
+    end
+    []
   end
 
   def display_choice(option)
