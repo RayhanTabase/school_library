@@ -18,6 +18,18 @@ class Person
     @age >= 18
   end
 
+  
+  def to_json(*args)
+    {
+      JSON.create_id  => self.class.name,
+      'a'             => [ title, author ]
+    }.to_json(*args)
+  end
+
+  def self.json_create(object)
+    new(*object['a'])
+  end
+
   def can_use_services?
     @parent_permission || is_of_age?
   end
