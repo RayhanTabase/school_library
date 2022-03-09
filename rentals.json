@@ -1,1 +1,1 @@
-["#<Rental:0x05786a7c>"]
+[{"json_class":"Rental","a":[{"json_class":"Student","a":[null,22,"Meqdam"]},{"json_class":"Book","a":["the first","the second"]},"2/2/2022"]},{"json_class":"Rental","a":[{"json_class":"Student","a":[null,22,"Meqdam"]},{"json_class":"Book","a":["the first","the second"]},"2/3/2012"]}]

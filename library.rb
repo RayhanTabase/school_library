@@ -116,7 +116,10 @@ class Library
   def store_data
     File.write('rentals.json',  JSON.generate(@rentals, create_additions: true))
     File.write('books.json',  JSON.generate(@books, create_additions: true))
-    File.write('people.json',  JSON.generate(@people, create_additions: true)) 
+    @people.each do |single|
+      File.write('people.json',  JSON.generate(@people, create_additions: true))   
+    end
+    
   end
 
   def read_data(dir)
