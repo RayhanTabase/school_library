@@ -114,18 +114,17 @@ class Library
   end
 
   def store_data
-    File.write('rentals.json',  JSON.generate(@rentals, create_additions: true))
-    File.write('books.json',  JSON.generate(@books, create_additions: true))
-    @people.each do |single|
-      File.write('people.json',  JSON.generate(@people, create_additions: true))   
+    File.write('rentals.json', JSON.generate(@rentals, create_additions: true))
+    File.write('books.json', JSON.generate(@books, create_additions: true))
+    @people.each do |_single|
+      File.write('people.json', JSON.generate(@people, create_additions: true))
     end
-    
   end
 
   def read_data(dir)
-    if File.exists?(dir)
+    if File.exist?(dir)
       data = File.read(dir)
-      return JSON.parse(data,  create_additions: true)
+      return JSON.parse(data, create_additions: true)
     end
     []
   end
