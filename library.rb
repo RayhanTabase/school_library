@@ -41,7 +41,7 @@ class Library
     age = input_number(100, 'Age')
     name = input_string_no_num(1, 'Name')
     has_parental_permission = choose_y_n('Has parent permission?')
-    new_person = Student.new(nil, age, name, parent_permission: has_parental_permission)
+    new_person = Student.new(nil, age, nil, name, has_parental_permission)
     @people << new_person
   end
 
@@ -49,7 +49,7 @@ class Library
     age = input_number(100, 'Age')
     name = input_string_no_num(1, 'Name')
     specialization = input_string(1, 'Specialization')
-    new_person = Teacher.new(specialization, age, name)
+    new_person = Teacher.new(specialization, age, nil, name)
     @people << new_person
   end
 
