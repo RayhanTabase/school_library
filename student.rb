@@ -15,8 +15,9 @@ class Student < Person
 
   def to_json(*args)
     {
-      JSON.create_id  => self.class.name,
-      'a'             => [classroom, age, id, name, @parent_permission]
+
+      JSON.create_id => self.class.name,
+      'a' => [classroom, age, id, name, @parent_permission]
     }.to_json(*args)
   end
 

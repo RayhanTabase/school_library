@@ -14,8 +14,8 @@ class Book
 
   def to_json(*args)
     {
-      JSON.create_id  => self.class.name,
-      'a'             => [ title, author]
+      JSON.create_id => self.class.name,
+      'a' => [title, author]
     }.to_json(*args)
   end
 
