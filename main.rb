@@ -15,7 +15,10 @@ class Run
     while flag
       library.display_menu
       option = input_number(7)
-      flag = false if option == 7
+      if option == 7
+        library.store_data
+        flag = false
+      end
       library.display_choice(option)
     end
   end

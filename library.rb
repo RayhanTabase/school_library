@@ -1,11 +1,12 @@
+require 'json'
 require_relative './inputs'
 
 class Library
   include Inputs
   def initialize
-    @books = []
-    @people = []
-    @rentals = []
+    @books = read_data('books.json')
+    @people = read_data('people.json')
+    @rentals = read_data('rentals.json')
   end
 
   def list_all_books(with_index: false)
@@ -40,7 +41,7 @@ class Library
     age = input_number(100, 'Age')
     name = input_string_no_num(1, 'Name')
     has_parental_permission = choose_y_n('Has parent permission?')
-    new_person = Student.new(nil, age, name, parent_permission: has_parental_permission)
+    new_person = Student.new(nil, age, nil, name, has_parental_permission)
     @people << new_person
   end
 
@@ -48,7 +49,7 @@ class Library
     age = input_number(100, 'Age')
     name = input_string_no_num(1, 'Name')
     specialization = input_string(1, 'Specialization')
-    new_person = Teacher.new(specialization, age, name)
+    new_person = Teacher.new(specialization, age, nil, name)
     @people << new_person
   end
 
@@ -110,6 +111,22 @@ class Library
     puts 'Please choose an option by entering a valid number: '
     puts ' '
     options.each_with_index { |choice, index| puts "#{index + 1} - #{choice}" }
+  end
+
+  def store_data
+    File.write('rentals.json', JSON.generate(@rentals, create_additions: true))
+    File.write('books.json', JSON.generate(@books, create_additions: true))
+    @people.each do |_single|
+      File.write('people.json', JSON.generate(@people, create_additions: true))
+    end
+  end
+
+  def read_data(dir)
+    if File.exist?(dir)
+      data = File.read(dir)
+      return JSON.parse(data, create_additions: true)
+    end
+    []
   end
 
   def display_choice(option)
