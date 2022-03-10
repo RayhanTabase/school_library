@@ -1,5 +1,5 @@
-require './person'
-require './book'
+require_relative '../person'
+require_relative '../book'
 
 describe Person do
   context 'When testing the Person class' do
@@ -19,10 +19,6 @@ describe Person do
 
     it 'should validate parent permission for parent' do
       expect(person.parent_permission).to be parent_permission
-    end
-
-    it 'should validate if person is of age' do
-      expect(person.of_age).to eq false
     end
 
     it 'should return false if person cannot use service' do

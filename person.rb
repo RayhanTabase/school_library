@@ -1,7 +1,7 @@
 require_relative './corrector'
 
 class Person
-  attr_accessor :name, :age, :rentals
+  attr_accessor :name, :age, :rentals, :parent_permission
 
   attr_reader :id
 
@@ -19,7 +19,7 @@ class Person
   end
 
   def can_use_services?
-    @parent_permission || is_of_age?
+    @parent_permission || of_age?
   end
 
   def validate_name

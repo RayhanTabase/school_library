@@ -1,4 +1,4 @@
-require './student'
+require_relative '../student'
 
 describe Student do
   context 'When testing the Student class' do
@@ -20,7 +20,7 @@ describe Student do
     end
 
     it 'should validate the play_hooky for student' do
-      expect(student.play_hooky).to eq "¯\(ツ)/¯"
+      expect(student.play_hooky).to eq '¯\(ツ)/¯'
     end
   end
 end

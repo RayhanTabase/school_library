@@ -1,6 +1,6 @@
-require './book'
-require './student'
-require './rental'
+require_relative '../book'
+require_relative '../student'
+require_relative '../rental'
 
 describe Rental do
   context 'When testing the Rental class' do
