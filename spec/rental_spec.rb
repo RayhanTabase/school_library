@@ -20,5 +20,9 @@ describe Rental do
     it 'should validate the book of the rental' do
       expect(rental.book).to eq book
     end
+
+    it 'should equal the value in the  rental array ' do
+      expect(student.rentals[0]).to eq rental
+    end
   end
 end

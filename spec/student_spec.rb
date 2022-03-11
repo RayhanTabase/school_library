@@ -22,5 +22,9 @@ describe Student do
     it 'should validate the play_hooky for student' do
       expect(student.play_hooky).to eq '¯\(ツ)/¯'
     end
+
+    it 'should return nil for student classroom name  ' do
+      expect(student.classroom).to eq nil
+    end
   end
 end
