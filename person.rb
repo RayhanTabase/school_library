@@ -1,7 +1,7 @@
-require_relative './corrector'
+require_relative './nameable'
 
-class Person
-  attr_accessor :name, :age, :rentals
+class Person < Nameable
+  attr_accessor :name, :age
 
   attr_reader :id
 
@@ -10,8 +10,7 @@ class Person
     @name = name
     @parent_permission = parent_permission
     @age = age
-    @corrector = Corrector.new
-    @rentals = []
+    @nameable = Nameable.new
   end
 
   def of_age?
@@ -22,12 +21,8 @@ class Person
     @parent_permission || is_of_age?
   end
 
-  def validate_name
-    @name = @corrector.correct_name(@name)
-  end
-
-  def add_rental(rental)
-    @rentals << rental
+  def correct_name
+    @name
   end
 
   private :of_age?
