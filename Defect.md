@@ -1,0 +1,2 @@
+- The option to list all rentals by id not working
+- New student not recorded

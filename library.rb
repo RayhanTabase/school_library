@@ -41,7 +41,6 @@ class Library
     name = input_string_no_num(1, 'Name')
     has_parental_permission = choose_y_n('Has parent permission?')
     new_person = Student.new(nil, age, name, parent_permission: has_parental_permission)
-    @people << new_person
   end
 
   def create_teacher
@@ -124,8 +123,6 @@ class Library
       create_book
     when 5
       create_rental
-    when 6
-      list_rentals_for_id
     end
   end
 end
